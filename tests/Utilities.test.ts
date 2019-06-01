@@ -68,8 +68,7 @@ describe('headlessGetOptions', function() {
     const expectedOptions = [
       '-incognito',
       '--remote-debugging-port=9333',
-      '--headless',
-      '--disable-gpu'
+      '--headless'
     ];
     expectedOptions.map(x => expect(headlessOptions).to.include(x));
   });

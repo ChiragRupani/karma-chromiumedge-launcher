@@ -31,13 +31,21 @@
     "@types/node": "^12.0.3",
     "@types/sinon": "^7.0.12",
     "chai": "^4.2.0",
-    "jasmine-node": "^3.0.0",
-    "karma": "^4.1.0",
-    "karma-mocha": "1.x || ^0.2.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
-    "sinon": "^7.3.2",
     "ts-node": "^8.2.0",
     "typescript": "^3.5.1"
+  },
+  "nyc": {
+    "reporter": [
+      "text"
+    ],
+    "temp-directory": "./coverage/.nyc_output",
+    "exclude": "typings",
+    "extension": [
+      ".ts"
+    ],
+    "sourceMap": true,
+    "instrument": true
   }
 }
