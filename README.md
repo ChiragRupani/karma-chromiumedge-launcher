@@ -7,6 +7,9 @@
 Clone/download the package
 
 ```bash
+# Run in clonned directory to install dependencies
+npm install
+
 # Run in clonned directory
 npm run package  # Generates package in tgz format
 
