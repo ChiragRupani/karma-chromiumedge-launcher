@@ -17,8 +17,9 @@ EdgeDevBrowser.prototype = {
   DEFAULT_CMD: {
     linux: null,
     // Chromium Edge only available in Canary Channel
-    darwin: null,
-    // Utilities.GetEdgeDarwin( '/Applications/Microsoft Edge Dev.app/Contents/MacOS/Microsoft Edge Dev'),
+    darwin: Utilities.GetEdgeDarwin(
+      '/Applications/Microsoft Edge Dev.app/Contents/MacOS/Microsoft Edge Dev'
+    ),
     win32: Utilities.GetEdgeExe('Edge Dev')
   },
 
