@@ -1,7 +1,7 @@
 import BaseBrowser from './BaseBrowser';
 import Utilities from './Utilities';
 
-const EdgeDevBrowser = function(baseBrowserDecorator, args) {
+const EdgeBetaBrowser = function(baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -9,20 +9,20 @@ const EdgeDevBrowser = function(baseBrowserDecorator, args) {
   this._getOptions = browser._getOptions;
 };
 
-EdgeDevBrowser.$inject = ['baseBrowserDecorator', 'args'];
+EdgeBetaBrowser.$inject = ['baseBrowserDecorator', 'args'];
 
-EdgeDevBrowser.prototype = {
-  name: 'Edge Dev',
+EdgeBetaBrowser.prototype = {
+  name: 'Edge Beta',
 
   DEFAULT_CMD: {
     linux: null,
     darwin: Utilities.GetEdgeDarwin(
-      '/Applications/Microsoft Edge Dev.app/Contents/MacOS/Microsoft Edge Dev'
+      '/Applications/Microsoft Edge Beta.app/Contents/MacOS/Microsoft Edge Beta'
     ),
-    win32: Utilities.GetEdgeExe('Edge Dev')
+    win32: Utilities.GetEdgeExe('Edge Beta')
   },
 
-  ENV_CMD: 'EDGE_DEV_BIN'
+  ENV_CMD: 'EDGE_Beta_BIN'
 };
 
-export default EdgeDevBrowser;
+export default EdgeBetaBrowser;
