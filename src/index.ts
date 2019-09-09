@@ -1,6 +1,6 @@
-import EdgeBetaBrowser from './src/EdgeBeta';
-import EdgeCanaryBrowser from './src/EdgeCanary';
-import EdgeDevBrowser from './src/EdgeDev';
+import EdgeBetaBrowser from './channels/EdgeBeta';
+import EdgeCanaryBrowser from './channels/EdgeCanary';
+import EdgeDevBrowser from './channels/EdgeDev';
 
 module.exports = {
   'launcher:EdgeDev': ['type', EdgeDevBrowser],

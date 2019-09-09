@@ -1,7 +1,7 @@
 {
   "name": "@chiragrupani/karma-chromium-edge-launcher",
   "version": "1.0.0",
-  "description": "A Karma plugin. Launcher for Chromium Edge and Chromium Edge Canary.",
+  "description": "A Karma plugin. Launcher for Chromium Edge - Dev, Canary and Beta",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

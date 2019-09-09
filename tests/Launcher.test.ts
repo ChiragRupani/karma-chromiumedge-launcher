@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import EdgeDevBrowser from '../src/EdgeDev';
+import EdgeDevBrowser from '../src/channels/EdgeDev';
 
 describe('Verify options are returned', function() {
   it('Verify options for Edge Dev', function() {

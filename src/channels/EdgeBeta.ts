@@ -1,5 +1,5 @@
-import BaseBrowser from './BaseBrowser';
-import Utilities from './Utilities';
+import BaseBrowser from '../BaseBrowser';
+import Utilities from '../Utilities';
 
 const EdgeBetaBrowser = function(baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
