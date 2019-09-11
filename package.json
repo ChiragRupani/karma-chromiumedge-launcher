@@ -7,8 +7,11 @@
   "scripts": {
     "build": "tsc",
     "test": "node node_modules/mocha/bin/mocha -r ts-node/register tests/**/*.test.ts",
-    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/**/*.test.ts && nyc report",
+    "coverage": "nyc npm run test",
     "package": "npm run build & npm pack"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/ChiragRupani"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,8 @@
     "karma-plugin",
     "karma-launcher",
     "Chromium Edge Dev",
-    "Chromium Edge Canary"
+    "Chromium Edge Canary",
+    "Chromium Edge Beta"
   ],
   "author": "Chirag",
   "dependencies": {
@@ -34,7 +38,7 @@
     "mocha": "^6.2.0",
     "nyc": "^14.1.1",
     "ts-node": "^8.3.0",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.3"
   },
   "nyc": {
     "reporter": [
