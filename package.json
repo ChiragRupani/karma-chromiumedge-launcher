@@ -11,7 +11,7 @@
     "package": "npm run build & npm pack"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ChiragRupani"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
