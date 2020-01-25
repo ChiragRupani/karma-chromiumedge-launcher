@@ -1,6 +1,6 @@
 # karma-chromiumedge-launcher
 
-> Launcher for Chromium Edge Canary, Dev and Beta for Windows and Mac OS
+> Launcher for Chromium Edge Canary, Dev, Beta and Stable for Windows and Mac OS
 
 ## Installation
 
