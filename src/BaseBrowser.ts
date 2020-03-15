@@ -42,8 +42,10 @@ export default class BaseBrowser {
 
   _getHeadlessOptions(url: string): string[] {
     var mergedArgs = this._getOptions(url).concat([
-      '--headless'
-      //'--disable-gpu'
+      // Headless not working on NodeJS
+      // '--headless',
+      '--no-proxy-server'
+      // '--disable-gpu'
     ]);
 
     var args: string[];
