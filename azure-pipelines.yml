@@ -17,14 +17,15 @@ steps:
 
   - script: |
       npm install --progress=false --loglevel=error --no-fund
+      npm run build
       npm run coverage
-    displayName: 'npm install and test'
+    displayName: 'npm install, build and test'
 
   - task: PublishTestResults@2
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
-      testResultsFiles: 'Coverage/test-results.xml'
+      testResultsFiles: 'coverage/test-results.xml'
 
   - task: PublishCodeCoverageResults@1
     inputs:
@@ -32,18 +33,21 @@ steps:
       summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
       reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 
-  - script: |
-      npm pack
-    displayName: 'Create package'
-
   - task: CopyFiles@2
     inputs:
-      contents: '*.tgz'
-      targetFolder: $(Build.ArtifactStagingDirectory)
-    displayName: 'Copy package to artifacts staging directory'
+      SourceFolder: '$(Build.SourcesDirectory)'
+      Contents: |
+        dist/**
+        LICENSE 
+        package.json
+        README.md
+        .gitignore
+        .npmignore
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - task: PublishBuildArtifacts@1
     inputs:
-      path: $(Build.ArtifactStagingDirectory)
-      artifact: package
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
     displayName: 'Publish artifacts'
