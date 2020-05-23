@@ -22,7 +22,7 @@ npm install -g <path/to/tgz>
 
 ```js
 // karma.conf.js
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     browsers: ['EdgeDev'],
     plugins: [
@@ -30,8 +30,26 @@ module.exports = function(config) {
       require('@chiragrupani/karma-chromium-edge-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma')
-    ]
+      require('@angular-devkit/build-angular/plugins/karma'),
+    ],
+  });
+};
+```
+
+For Headless
+
+```js
+// karma.conf.js
+module.exports = function (config) {
+  config.set({
+    browsers: ['EdgeDevHeadless'],
+    plugins: [
+      require('karma-jasmine'),
+      require('@chiragrupani/karma-chromium-edge-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+      require('@angular-devkit/build-angular/plugins/karma'),
+    ],
   });
 };
 ```

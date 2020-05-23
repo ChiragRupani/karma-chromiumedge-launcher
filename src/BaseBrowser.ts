@@ -34,7 +34,7 @@ export default class BaseBrowser {
       // and we need disable-renderer-backgrounding too
       // see https://github.com/karma-runner/karma-chrome-launcher/issues/123
       '--disable-renderer-backgrounding',
-      '--disable-device-discovery-notifications'
+      '--disable-device-discovery-notifications',
     ].concat(this.flags, [url]);
 
     return allflags;
@@ -42,15 +42,14 @@ export default class BaseBrowser {
 
   _getHeadlessOptions(url: string): string[] {
     var mergedArgs = this._getOptions(url).concat([
-      // Headless not working on NodeJS
-      // '--headless',
-      '--no-proxy-server'
+      '--headless',
+      '--no-proxy-server',
       // '--disable-gpu'
     ]);
 
     var args: string[];
 
-    if (mergedArgs.some(f => f.indexOf('--remote-debugging-port=') !== -1)) {
+    if (mergedArgs.some((f) => f.indexOf('--remote-debugging-port=') !== -1)) {
       args = mergedArgs;
     } else {
       args = mergedArgs.concat(['--remote-debugging-port=9222']);
