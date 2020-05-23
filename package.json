@@ -7,11 +7,11 @@
   "scripts": {
     "build": "tsc",
     "test": "node node_modules/mocha/bin/mocha -r ts-node/register tests/**/*.test.ts",
-    "coverage": "nyc npm run test -- --reporter=mocha-junit-reporter  --reporter-options mochaFile=coverage/test-results.xml",
+    "coverage": "nyc npm run test -- --reporter=mocha-junit-reporter --reporter-options mochaFile=coverage/test-results.xml",
     "package": "npm run build & npm pack"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

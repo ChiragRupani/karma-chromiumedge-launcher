@@ -53,3 +53,6 @@
   },
   "include": ["src/index.ts"]
 }
+
+// For github use below registry
+// "registry": "https://npm.pkg.github.com"
