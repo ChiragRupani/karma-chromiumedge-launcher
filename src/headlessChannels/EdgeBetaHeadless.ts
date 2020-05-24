@@ -22,7 +22,7 @@ EdgeBetaHeadlessBrowser.prototype = {
     win32: Utilities.GetEdgeExe('Edge Beta')
   },
 
-  ENV_CMD: 'EDGE_Beta_BIN'
+  ENV_CMD: 'EDGE_BETA_BIN'
 };
 
 export default EdgeBetaHeadlessBrowser;

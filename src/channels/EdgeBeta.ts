@@ -1,7 +1,7 @@
 import BaseBrowser from '../BaseBrowser';
 import Utilities from '../Utilities';
 
-const EdgeBetaBrowser = function(baseBrowserDecorator, args) {
+const EdgeBetaBrowser = function (baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -19,10 +19,10 @@ EdgeBetaBrowser.prototype = {
     darwin: Utilities.GetEdgeDarwin(
       '/Applications/Microsoft Edge Beta.app/Contents/MacOS/Microsoft Edge Beta'
     ),
-    win32: Utilities.GetEdgeExe('Edge Beta')
+    win32: Utilities.GetEdgeExe('Edge Beta'),
   },
 
-  ENV_CMD: 'EDGE_Beta_BIN'
+  ENV_CMD: 'EDGE_BETA_BIN',
 };
 
 export default EdgeBetaBrowser;

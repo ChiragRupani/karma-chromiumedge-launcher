@@ -1,8 +1,8 @@
-# karma-chromiumedge-launcher
+# karma-chromium-edge-launcher
 
 > Launcher for Chromium Edge Canary, Dev, Beta and Stable channels for Windows OS and Mac OS
 
-Now available on [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher) 🎉
+Available in [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher) ??
 
 ## Installation
 
@@ -44,6 +44,21 @@ If you want to launch browser in headless mode, below is correspondling list:
 - "EdgeBetaHeadless"
 - "EdgeCanaryHeadless"
 
+If you want to explicity specify the path for browser installation, set environment variable from this list, corresponding to release channel:
+
+```bash
+EDGE_BIN, EDGE_BETA_BIN, EDGE_DEV_BIN, EDGE_CANARY_BIN
+```
+
+Example:
+
+```bash
+# Add at top of karma.conf.js
+process.env.EDGE_DEV_BIN =
+  "C:\\Program Files (x86)\\Microsoft\\Edge Dev\\Application\\msedge.exe";
+
+```
+
 That's all is required to use Karma with Chromium Edge browser.
 
 The browser can also be specified with `npm test` commmand like below:
@@ -54,7 +69,7 @@ The browser can also be specified with `npm test` commmand like below:
 
 ## Build from Source
 
-In case you want to build package from github sources
+In case if you want to build package from github source
 
 ```bash
 # Clone/download the package
