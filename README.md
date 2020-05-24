@@ -2,7 +2,7 @@
 
 > Launcher for Chromium Edge Canary, Dev, Beta and Stable channels for Windows OS and Mac OS
 
-Available in [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher) ??
+Available in [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher) 🎉
 
 ## Installation
 
