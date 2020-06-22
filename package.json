@@ -1,6 +1,6 @@
 {
   "name": "@chiragrupani/karma-chromium-edge-launcher",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A Karma plugin. Launcher for different Chromium Edge channels - Dev, Canary, Beta and Stable",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,10 +24,11 @@
     "Chromium Edge Canary",
     "Chromium Edge Beta",
     "Chromium Edge Stable",
-    "microsoft",
+    "Microsoft",
     "edge",
     "Chromium Edge Launcher",
-    "Karma"
+    "Karma",
+    "Edgium"
   ],
   "author": "Chirag",
   "dependencies": {
@@ -37,14 +38,14 @@
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.0.5",
+    "@types/node": "^14.0.13",
     "@types/sinon": "^9.0.4",
     "chai": "^4.2.0",
-    "mocha": "^7.2.0",
-    "mocha-junit-reporter": "^1.23.3",
-    "nyc": "^15.0.1",
-    "ts-node": "^8.10.1",
-    "typescript": "^3.9.3"
+    "mocha": "^8.0.1",
+    "mocha-junit-reporter": "^2.0.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   },
   "nyc": {
     "reporter": [

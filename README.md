@@ -1,8 +1,12 @@
-# karma-chromium-edge-launcher
+# Karma-Chromium-Edge-Launcher
+
+[![npm (scoped)](https://img.shields.io/npm/v/@chiragrupani/karma-chromium-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher) [![npm](https://img.shields.io/npm/dt/@chiragrupani/karma-chromium-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher)
+
+[![Build Status](https://dev.azure.com/chiragrupani/chromium-edge-launcher/_apis/build/status/ChiragRupani.karma-chromiumedge-launcher?branchName=master)](https://dev.azure.com/chiragrupani/chromium-edge-launcher/_build/latest?definitionId=3&branchName=master)
 
 > Launcher for Chromium Edge Canary, Dev, Beta and Stable channels for Windows OS and Mac OS
 
-Available in [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher) 🎉
+Available in [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher)
 
 ## Installation
 
