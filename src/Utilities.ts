@@ -1,10 +1,9 @@
 var fs = require('fs');
 var path = require('path');
-var which = require('which');
 
 export default class Utilities {
   static GetBin(commands: string[]) {
-    // // Only run these checks on Linux
+    // Only run these checks on Linux
     if (process.platform !== 'linux') {
       return null;
     }
@@ -12,7 +11,7 @@ export default class Utilities {
 
     for (let i = 0; i < commands.length; i++) {
       try {
-        if (which.sync(commands[i])) {
+        if (fs.accessSync(commands[i], fs.X_OK)) {
           bin = commands[i];
           break;
         }
@@ -47,7 +46,7 @@ export default class Utilities {
     var prefixes = [
       process.env['PROGRAMFILES(X86)'],
       process.env.PROGRAMFILES,
-      process.env.LOCALAPPDATA
+      process.env.LOCALAPPDATA,
     ];
 
     var edgePath: string = '';

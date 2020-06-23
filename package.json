@@ -1,6 +1,6 @@
 {
   "name": "@chiragrupani/karma-chromium-edge-launcher",
-  "version": "1.2.6",
+  "version": "2.0.0",
   "description": "A Karma plugin. Launcher for different Chromium Edge channels - Dev, Canary, Beta and Stable",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -31,9 +31,6 @@
     "Edgium"
   ],
   "author": "Chirag",
-  "dependencies": {
-    "which": "^2.0.2"
-  },
   "license": "MIT Based",
   "devDependencies": {
     "@types/chai": "^4.2.11",
