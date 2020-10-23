@@ -15,7 +15,7 @@ EdgeBetaBrowser.prototype = {
   name: 'Edge Beta',
 
   DEFAULT_CMD: {
-    linux: null,
+    linux: Utilities.GetLinuxBin('microsoft-edge-beta'),
     darwin: Utilities.GetEdgeDarwin(
       '/Applications/Microsoft Edge Beta.app/Contents/MacOS/Microsoft Edge Beta'
     ),

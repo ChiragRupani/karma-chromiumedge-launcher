@@ -1,7 +1,7 @@
 import BaseBrowser from '../BaseBrowser';
 import Utilities from '../Utilities';
 
-const EdgeCanaryHeadlessBrowser = function(baseBrowserDecorator, args) {
+const EdgeCanaryHeadlessBrowser = function (baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -15,14 +15,14 @@ EdgeCanaryHeadlessBrowser.prototype = {
   name: 'Edge Canary Headless',
 
   DEFAULT_CMD: {
-    linux: null,
+    linux: Utilities.GetLinuxBin('microsoft-edge-canary'),
     darwin: Utilities.GetEdgeDarwin(
       '/Applications/Microsoft Edge Canary.app/Contents/MacOS/Microsoft Edge Canary'
     ),
-    win32: Utilities.GetEdgeExe('Edge SxS')
+    win32: Utilities.GetEdgeExe('Edge SxS'),
   },
 
-  ENV_CMD: 'EDGE_CANARY_BIN'
+  ENV_CMD: 'EDGE_CANARY_BIN',
 };
 
 export default EdgeCanaryHeadlessBrowser;

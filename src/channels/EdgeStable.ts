@@ -1,7 +1,7 @@
 import BaseBrowser from '../BaseBrowser';
 import Utilities from '../Utilities';
 
-const EdgeStableBrowser = function(baseBrowserDecorator, args) {
+const EdgeStableBrowser = function (baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -15,14 +15,14 @@ EdgeStableBrowser.prototype = {
   name: 'Edge',
 
   DEFAULT_CMD: {
-    linux: null,
+    linux: Utilities.GetLinuxBin('microsoft-edge'),
     darwin: Utilities.GetEdgeDarwin(
       '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge'
     ),
-    win32: Utilities.GetEdgeExe('Edge')
+    win32: Utilities.GetEdgeExe('Edge'),
   },
 
-  ENV_CMD: 'EDGE_BIN'
+  ENV_CMD: 'EDGE_BIN',
 };
 
 export default EdgeStableBrowser;
