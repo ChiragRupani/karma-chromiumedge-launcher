@@ -44,7 +44,8 @@ export default class BaseBrowser {
     var mergedArgs = this._getOptions(url).concat([
       '--headless',
       '--no-proxy-server',
-      // '--disable-gpu'
+      //'--no-sandbox',
+      //'--disable-gpu',
     ]);
 
     var args: string[];

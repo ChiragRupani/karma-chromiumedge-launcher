@@ -4,7 +4,7 @@
 
 [![Build Status](https://dev.azure.com/chiragrupani/chromium-edge-launcher/_apis/build/status/ChiragRupani.karma-chromiumedge-launcher?branchName=master)](https://github.com/ChiragRupani/karma-chromiumedge-launcher)
 
-> Launcher for Chromium Edge Canary, Dev, Beta and Stable channels for Windows OS and Mac OS
+> Launcher for Chromium Edge Canary, Dev, Beta and Stable channels for Windows OS, Mac OS and Linux OS
 
 Available in [NPM Registry](https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher)
 

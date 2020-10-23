@@ -1,24 +1,31 @@
-var fs = require('fs');
-var path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 export default class Utilities {
-  static GetBin(commands: string[]) {
+  static GetLinuxBin(command: string) {
     // Only run these checks on Linux
     if (process.platform !== 'linux') {
       return null;
     }
-    var bin: string = '';
 
-    for (let i = 0; i < commands.length; i++) {
-      try {
-        if (fs.accessSync(commands[i], fs.X_OK)) {
-          bin = commands[i];
-          break;
-        }
-      } catch (e) {}
-    }
+    // Need to check if check for other paths is required
+    const paths = [
+      '/usr/local/sbin',
+      '/usr/local/bin',
+      '/usr/sbin',
+      '/usr/bin',
+      '/sbin',
+      '/bin',
+    ];
 
-    return bin;
+    var edgeBIN: string = '/usr/bin/' + command;
+
+    try {
+      fs.accessSync(edgeBIN, fs.constants.X_OK);
+      return command;
+    } catch (e) {}
+
+    return null;
   }
 
   static GetEdgeDarwin(defaultPath) {
@@ -27,7 +34,7 @@ export default class Utilities {
     }
 
     try {
-      var homePath = path.join(process.env.HOME, defaultPath);
+      var homePath = path.join(process.env.HOME || '', defaultPath);
       fs.accessSync(homePath);
       return homePath;
     } catch (e) {
@@ -36,7 +43,7 @@ export default class Utilities {
   }
 
   // Return location of Edge.exe file for a given directory.
-  static GetEdgeExe(edgeDirName) {
+  static GetEdgeExe(edgeDirName: string) {
     // Only run these checks on win32
     if (process.platform !== 'win32') {
       return null;
@@ -52,7 +59,7 @@ export default class Utilities {
     var edgePath: string = '';
     for (let i = 0; i < prefixes.length; i++) {
       try {
-        var windowsEdgeDirectory = path.join(prefixes[i], suffix);
+        var windowsEdgeDirectory = path.join(prefixes[i] || '', suffix);
         fs.accessSync(windowsEdgeDirectory);
         edgePath = windowsEdgeDirectory;
         break;

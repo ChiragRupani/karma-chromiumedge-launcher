@@ -1,7 +1,7 @@
 import BaseBrowser from '../BaseBrowser';
 import Utilities from '../Utilities';
 
-const EdgeDevHeadlessBrowser = function(baseBrowserDecorator, args) {
+const EdgeDevHeadlessBrowser = function (baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -15,14 +15,14 @@ EdgeDevHeadlessBrowser.prototype = {
   name: 'Edge Dev Headless',
 
   DEFAULT_CMD: {
-    linux: null,
+    linux: Utilities.GetLinuxBin('microsoft-edge-dev'),
     darwin: Utilities.GetEdgeDarwin(
       '/Applications/Microsoft Edge Dev.app/Contents/MacOS/Microsoft Edge Dev'
     ),
-    win32: Utilities.GetEdgeExe('Edge Dev')
+    win32: Utilities.GetEdgeExe('Edge Dev'),
   },
 
-  ENV_CMD: 'EDGE_DEV_BIN'
+  ENV_CMD: 'EDGE_DEV_BIN',
 };
 
 export default EdgeDevHeadlessBrowser;
