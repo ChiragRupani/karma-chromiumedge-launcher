@@ -71,6 +71,29 @@ The browser can also be specified with `npm test` commmand like below:
  "coverage": "ng t --no-watch --code-coverage --reporters=junit,coverage-istanbul --browsers=EdgeHeadless --progress=false"
 ```
 
+## Running from Linux Docker
+
+For running in docker, you may get error like below:
+
+"Edge Headless stderr: [0116/032919.925976:ERROR:zygote_host_impl_linux.cc(90)] Running as root without --no-sandbox is not supported. See https://crbug.com/638180."
+
+Then you need to run it as non-root user or disable sandbox. Please read [sandbox design](https://chromium.googlesource.com/chromium/src/+/master/docs/design/sandbox.md) before disabling it.
+
+This can be done using custom launcher in `karma.conf.js` using Edge launcher as base and adding extra flags as desired.
+
+For example, for angular app, add below in `karma.conf.js`:
+
+```js
+  customLaunchers: {
+    EdgeHeadlessCI: {
+      base: "EdgeHeadless",
+      flags: ["--no-sandbox"],
+    },
+  },
+```
+
+and in `package.json` use it like: `"test:edge": "ng test --no-watch --browsers=EdgeHeadlessCI"`
+
 ## Build from Source
 
 In case if you want to build package from github source
