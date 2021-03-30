@@ -33,16 +33,16 @@
   "author": "Chirag",
   "license": "MIT Based",
   "devDependencies": {
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.2.0",
-    "@types/node": "^14.14.17",
-    "@types/sinon": "^9.0.10",
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^14.14.37",
+    "@types/sinon": "^9.0.11",
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
     "mocha-junit-reporter": "^2.0.0",
     "nyc": "^15.1.0",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.2.3"
   },
   "nyc": {
     "reporter": [

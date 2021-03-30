@@ -12,8 +12,8 @@ pool:
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '12.x'
-    displayName: 'Install Node.js 12'
+      versionSpec: '14.x'
+    displayName: 'Install Node.js 14'
 
   - script: |
       npm install --progress=false --loglevel=error --no-fund

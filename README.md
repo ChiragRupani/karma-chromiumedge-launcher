@@ -16,7 +16,7 @@ Install the package as dev-dependency
 npm i -D @chiragrupani/karma-chromium-edge-launcher
 ```
 
-# Configuration
+## Configuration
 
 Update `Karma.conf.js` replace or append to array of browsers and add require plugin as below:
 
