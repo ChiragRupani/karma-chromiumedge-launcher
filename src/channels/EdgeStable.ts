@@ -1,4 +1,9 @@
 import BaseBrowser from '../BaseBrowser';
+import {
+  DarwinConstants,
+  LinuxConstants,
+  WindowsConstants,
+} from '../Constants';
 import Utilities from '../Utilities';
 
 const EdgeStableBrowser = function (baseBrowserDecorator, args) {
@@ -15,11 +20,11 @@ EdgeStableBrowser.prototype = {
   name: 'Edge',
 
   DEFAULT_CMD: {
-    linux: Utilities.GetLinuxBin('microsoft-edge'),
+    linux: Utilities.GetLinuxBin(LinuxConstants.Edge),
     darwin: Utilities.GetEdgeDarwin(
-      '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge'
+      `/Applications/${DarwinConstants.Edge}.app/Contents/MacOS/${DarwinConstants.Edge}`
     ),
-    win32: Utilities.GetEdgeExe('Edge'),
+    win32: Utilities.GetEdgeExe(WindowsConstants.Edge),
   },
 
   ENV_CMD: 'EDGE_BIN',

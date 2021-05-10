@@ -1,4 +1,9 @@
 import BaseBrowser from '../BaseBrowser';
+import {
+  DarwinConstants,
+  LinuxConstants,
+  WindowsConstants,
+} from '../Constants';
 import Utilities from '../Utilities';
 
 const EdgeBetaBrowser = function (baseBrowserDecorator, args) {
@@ -15,11 +20,11 @@ EdgeBetaBrowser.prototype = {
   name: 'Edge Beta',
 
   DEFAULT_CMD: {
-    linux: Utilities.GetLinuxBin('microsoft-edge-beta'),
+    linux: Utilities.GetLinuxBin(LinuxConstants.EdgeBeta),
     darwin: Utilities.GetEdgeDarwin(
-      '/Applications/Microsoft Edge Beta.app/Contents/MacOS/Microsoft Edge Beta'
+      `/Applications/${DarwinConstants.EdgeBeta}.app/Contents/MacOS/${DarwinConstants.EdgeBeta}`
     ),
-    win32: Utilities.GetEdgeExe('Edge Beta'),
+    win32: Utilities.GetEdgeExe(WindowsConstants.EdgeBeta),
   },
 
   ENV_CMD: 'EDGE_BETA_BIN',

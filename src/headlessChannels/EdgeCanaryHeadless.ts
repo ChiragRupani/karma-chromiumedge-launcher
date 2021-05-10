@@ -1,4 +1,9 @@
 import BaseBrowser from '../BaseBrowser';
+import {
+  DarwinConstants,
+  LinuxConstants,
+  WindowsConstants,
+} from '../Constants';
 import Utilities from '../Utilities';
 
 const EdgeCanaryHeadlessBrowser = function (baseBrowserDecorator, args) {
@@ -15,11 +20,11 @@ EdgeCanaryHeadlessBrowser.prototype = {
   name: 'Edge Canary Headless',
 
   DEFAULT_CMD: {
-    linux: Utilities.GetLinuxBin('microsoft-edge-canary'),
+    linux: Utilities.GetLinuxBin(LinuxConstants.EdgeCanary),
     darwin: Utilities.GetEdgeDarwin(
-      '/Applications/Microsoft Edge Canary.app/Contents/MacOS/Microsoft Edge Canary'
+      `/Applications/${DarwinConstants.EdgeCanary}.app/Contents/MacOS/${DarwinConstants.EdgeCanary}`
     ),
-    win32: Utilities.GetEdgeExe('Edge SxS'),
+    win32: Utilities.GetEdgeExe(WindowsConstants.EdgeCanary),
   },
 
   ENV_CMD: 'EDGE_CANARY_BIN',

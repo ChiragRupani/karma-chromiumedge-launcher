@@ -1,4 +1,9 @@
 import BaseBrowser from '../BaseBrowser';
+import {
+  DarwinConstants,
+  LinuxConstants,
+  WindowsConstants,
+} from '../Constants';
 import Utilities from '../Utilities';
 
 const EdgeDevHeadlessBrowser = function (baseBrowserDecorator, args) {
@@ -15,11 +20,11 @@ EdgeDevHeadlessBrowser.prototype = {
   name: 'Edge Dev Headless',
 
   DEFAULT_CMD: {
-    linux: Utilities.GetLinuxBin('microsoft-edge-dev'),
+    linux: Utilities.GetLinuxBin(LinuxConstants.EdgeDev),
     darwin: Utilities.GetEdgeDarwin(
-      '/Applications/Microsoft Edge Dev.app/Contents/MacOS/Microsoft Edge Dev'
+      `/Applications/${DarwinConstants.EdgeDev}.app/Contents/MacOS/${DarwinConstants.EdgeDev}`
     ),
-    win32: Utilities.GetEdgeExe('Edge Dev'),
+    win32: Utilities.GetEdgeExe(WindowsConstants.EdgeDev),
   },
 
   ENV_CMD: 'EDGE_DEV_BIN',
