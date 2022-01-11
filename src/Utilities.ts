@@ -34,13 +34,19 @@ export default class Utilities {
       return null;
     }
 
-    try {
-      var homePath = path.join(process.env.HOME || '', defaultPath);
-      fs.accessSync(homePath);
-      return homePath;
-    } catch (e) {
-      return null;
+    var darwinPaths = [
+      path.join(process.env.HOME || '', defaultPath),
+      defaultPath,
+    ];
+
+    for (let i = 0; i < darwinPaths.length; i++) {
+      try {
+        fs.accessSync(darwinPaths[i]);
+        return darwinPaths[i];
+      } catch {}
     }
+
+    return null;
   }
 
   // Return location of Edge.exe file for a given directory.
