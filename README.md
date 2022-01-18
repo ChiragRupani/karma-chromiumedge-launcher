@@ -40,6 +40,7 @@ Following browser channels are supported, add corresponding string in browsers:
 - "EdgeDev"
 - "EdgeBeta"
 - "EdgeCanary"
+- "EdgeAny"
 
 If you want to launch browser in headless mode, below is correspondling list:
 
@@ -47,11 +48,14 @@ If you want to launch browser in headless mode, below is correspondling list:
 - "EdgeDevHeadless"
 - "EdgeBetaHeadless"
 - "EdgeCanaryHeadless"
+- "EdgeAnyHeadless"
+
+EdgeAny and EdgeAnyHeadless launches the first available channel from Canary, Dev, Beta and Stable in the order.
 
 If you want to explicity specify the path for browser installation, set environment variable from this list, corresponding to release channel:
 
 ```bash
-EDGE_BIN, EDGE_BETA_BIN, EDGE_DEV_BIN, EDGE_CANARY_BIN
+EDGE_BIN, EDGE_BETA_BIN, EDGE_DEV_BIN, EDGE_CANARY_BIN, EDGE_ANY_BIN
 ```
 
 Example:
