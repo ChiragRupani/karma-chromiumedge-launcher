@@ -123,4 +123,4 @@ The project is based on [karma-chrome-launcher
 
 For more information on Karma see the [homepage].
 
-[homepage]: http://karma-runner.github.com
+[homepage]: https://karma-runner.github.io
