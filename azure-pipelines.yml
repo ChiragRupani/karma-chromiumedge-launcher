@@ -12,13 +12,26 @@ pool:
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '14.x'
-    displayName: 'Install Node.js 14'
+      versionSpec: '16.x'
+    displayName: 'Install Node.js 16'
+
+  - bash: |
+      ## Setup
+      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+      sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+      sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
+      sudo rm microsoft.gpg
+
+      ## Install
+      sudo apt update
+      sudo apt install microsoft-edge-dev
+    displayName: 'Install Microsoft Edge Dev'
 
   - script: |
       npm install --progress=false --loglevel=error --no-fund
       npm run build
       npm run coverage
+      npm run integration-test
     displayName: 'npm install, build and test'
 
   - task: PublishTestResults@2
