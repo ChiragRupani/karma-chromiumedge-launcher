@@ -7,13 +7,13 @@ trigger:
   - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '16.x'
-    displayName: 'Install Node.js 16'
+      versionSpec: "16.x"
+    displayName: "Install Node.js 16"
 
   - bash: |
       ## Setup
@@ -25,30 +25,30 @@ steps:
       ## Install
       sudo apt update
       sudo apt install microsoft-edge-dev
-    displayName: 'Install Microsoft Edge Dev'
+    displayName: "Install Microsoft Edge Dev"
 
   - script: |
-      npm install --progress=false --loglevel=error --no-fund
+      npm install --no-progress --loglevel=error --no-fund
       npm run build
       npm run coverage
       npm run integration-test
-    displayName: 'npm install, build and test'
+    displayName: "npm install, build and test"
 
   - task: PublishTestResults@2
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
-      testResultsFiles: 'coverage/test-results.xml'
+      testResultsFiles: "coverage/test-results.xml"
 
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
-      reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+      summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/*coverage.xml"
+      reportDirectory: "$(System.DefaultWorkingDirectory)/**/coverage"
 
   - task: CopyFiles@2
     inputs:
-      SourceFolder: '$(Build.SourcesDirectory)'
+      SourceFolder: "$(Build.SourcesDirectory)"
       Contents: |
         dist/**
         LICENSE 
@@ -56,11 +56,11 @@ steps:
         README.md
         .gitignore
         .npmignore
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      TargetFolder: "$(Build.ArtifactStagingDirectory)"
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
-    displayName: 'Publish artifacts'
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "drop"
+      publishLocation: "Container"
+    displayName: "Publish artifacts"
