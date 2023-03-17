@@ -58,9 +58,10 @@ export default class Utilities {
 
     var suffix = '\\Microsoft\\' + edgeDirName + '\\Application\\msedge.exe';
     var prefixes = [
-      process.env['PROGRAMFILES(X86)'],
+      process.env["PROGRAMFILES(X86)"],
       process.env.PROGRAMFILES,
       process.env.LOCALAPPDATA,
+      process.env.ProgramW6432,
     ];
 
     var edgePath: string | null = null;
