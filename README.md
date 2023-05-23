@@ -90,7 +90,7 @@ For example, for angular app, add below in `karma.conf.js`:
 ```js
   customLaunchers: {
     EdgeHeadlessCI: {
-      base: "EdgeHeadless",
+      base: "EdgeAnyHeadless",
       flags: ["--no-sandbox"],
     },
   },
