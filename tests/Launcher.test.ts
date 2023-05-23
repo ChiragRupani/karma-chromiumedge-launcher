@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import EdgeDevBrowser from '../src/channels/EdgeDev';
+import EdgeAnyHeadlessBrowser from '../src/headlessChannels/EdgeAnyHeadless';
 import EdgeDevHeadlessBrowser from '../src/headlessChannels/EdgeDevHeadless';
 
 describe('Verify options are returned', function () {
@@ -48,5 +49,22 @@ describe('Verify options are returned', function () {
     expect(options).contains(
       '--js-flags=--trace-opt --trace-deopt --trace-bailout'
     );
+  });
+
+  it('Verify options for Edge Any Headless with new headless flag', function () {
+    var launcher = {
+      _getOptions: (url) => {},
+    };
+
+    var browser = EdgeAnyHeadlessBrowser.call(launcher, function () {}, {
+      edgeDataDir: 'C:\\Users\\UserName\\AppData\\Local\\Temp\\karma-27597020',
+      flags: ['--headless=new'],
+    });
+
+    var options = launcher._getOptions('https://localhost:4200');
+
+    expect(options).contains('--enable-automation');
+    expect(options).contains('--headless=new');
+    expect(options).not.contains('--headless');
   });
 });

@@ -20,7 +20,7 @@ export default class BaseBrowser {
       }
     });
 
-    var allflags = [
+    let allflags = [
       '--user-data-dir=' + this.userDataDir,
       // https://github.com/GoogleChrome/chrome-launcher/blob/master/docs/chrome-flags-for-tools.md#--enable-automation
       '--enable-automation',
@@ -41,20 +41,28 @@ export default class BaseBrowser {
   }
 
   _getHeadlessOptions(url: string): string[] {
-    var mergedArgs = this._getOptions(url).concat([
-      '--headless',
+    let mergedArgs = this._getOptions(url);
+
+    // Adding Headless flag
+    // If there is arg with --headless=new or --headless=old, don't add --headless flag
+    mergedArgs = mergedArgs.some((flag) => flag.indexOf('--headless=') !== -1)
+      ? mergedArgs
+      : mergedArgs.concat(['--headless']);
+
+    // Add other flags to support headless mode
+    mergedArgs = mergedArgs.concat([
       '--no-proxy-server',
       //'--no-sandbox',
       //'--disable-gpu',
     ]);
 
-    var args: string[];
+    // Add remote debugging port
+    mergedArgs = mergedArgs.some(
+      (flag) => flag.indexOf('--remote-debugging-port=') !== -1
+    )
+      ? mergedArgs
+      : mergedArgs.concat(['--remote-debugging-port=9222']);
 
-    if (mergedArgs.some((f) => f.indexOf('--remote-debugging-port=') !== -1)) {
-      args = mergedArgs;
-    } else {
-      args = mergedArgs.concat(['--remote-debugging-port=9222']);
-    }
-    return args;
+    return mergedArgs;
   }
 }

@@ -30,6 +30,7 @@ steps:
   - script: |
       npm install --no-progress --loglevel=error --no-fund
       npm run build
+      npm run test
       npm run coverage
       npm run integration-test
     displayName: "npm install, build and test"

@@ -19,7 +19,7 @@ export default class Utilities {
       '/bin',
     ];
 
-    var edgeBIN: string = '/usr/bin/' + command;
+    let edgeBIN: string = '/usr/bin/' + command;
 
     try {
       fs.accessSync(edgeBIN, fs.constants.X_OK);
@@ -34,7 +34,7 @@ export default class Utilities {
       return null;
     }
 
-    var darwinPaths = [
+    let darwinPaths = [
       path.join(process.env.HOME || '', defaultPath),
       defaultPath,
     ];
@@ -56,18 +56,18 @@ export default class Utilities {
       return null;
     }
 
-    var suffix = '\\Microsoft\\' + edgeDirName + '\\Application\\msedge.exe';
-    var prefixes = [
+    let suffix = '\\Microsoft\\' + edgeDirName + '\\Application\\msedge.exe';
+    let prefixes = [
       process.env["PROGRAMFILES(X86)"],
       process.env.PROGRAMFILES,
       process.env.LOCALAPPDATA,
       process.env.ProgramW6432,
     ];
 
-    var edgePath: string | null = null;
+    let edgePath: string | null = null;
     for (let i = 0; i < prefixes.length; i++) {
       try {
-        var windowsEdgeDirectory = path.join(prefixes[i] || '', suffix);
+        let windowsEdgeDirectory = path.join(prefixes[i] || '', suffix);
         fs.accessSync(windowsEdgeDirectory);
         edgePath = windowsEdgeDirectory;
         break;
@@ -81,13 +81,13 @@ export default class Utilities {
   }
 
   static sanitizeJSFlags(flag: string) {
-    var test = /--js-flags=(['"])/.exec(flag);
+    let test = /--js-flags=(['"])/.exec(flag);
     if (!test) {
       return flag;
     }
-    var escapeChar = test[1];
-    var endExp = new RegExp(escapeChar + '$');
-    var startExp = new RegExp('--js-flags=' + escapeChar);
+    let escapeChar = test[1];
+    let endExp = new RegExp(escapeChar + '$');
+    let startExp = new RegExp('--js-flags=' + escapeChar);
     return flag.replace(startExp, '--js-flags=').replace(endExp, '');
   }
 
