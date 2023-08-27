@@ -12,8 +12,8 @@ pool:
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: "18.x"
-    displayName: "Install Node.js 18"
+      versionSpec: "20.x"
+    displayName: "Install Node.js 20"
 
   - bash: |
       ## Setup
