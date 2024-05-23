@@ -1,4 +1,4 @@
-import Utilities from './Utilities';
+import Utilities from "./Utilities";
 
 export default class BaseBrowser {
   private flags: string[];
@@ -21,20 +21,20 @@ export default class BaseBrowser {
     });
 
     let allflags = [
-      '--user-data-dir=' + this.userDataDir,
+      "--user-data-dir=" + this.userDataDir,
       // https://github.com/GoogleChrome/chrome-launcher/blob/master/docs/chrome-flags-for-tools.md#--enable-automation
-      '--enable-automation',
-      '--no-default-browser-check',
-      '--no-first-run',
-      '--disable-default-apps',
-      '--disable-popup-blocking',
-      '--disable-translate',
-      '--disable-background-timer-throttling',
+      "--enable-automation",
+      "--no-default-browser-check",
+      "--no-first-run",
+      "--disable-default-apps",
+      "--disable-popup-blocking",
+      "--disable-background-timer-throttling",
       // on macOS, disable-background-timer-throttling is not enough
       // and we need disable-renderer-backgrounding too
       // see https://github.com/karma-runner/karma-chrome-launcher/issues/123
-      '--disable-renderer-backgrounding',
-      '--disable-device-discovery-notifications',
+      "--disable-renderer-backgrounding",
+      "--disable-device-discovery-notifications",
+      "--mute-audio",
     ].concat(this.flags, [url]);
 
     return allflags;
@@ -45,23 +45,23 @@ export default class BaseBrowser {
 
     // Adding Headless flag
     // If there is arg with --headless=new or --headless=old, don't add --headless flag
-    mergedArgs = mergedArgs.some((flag) => flag.indexOf('--headless=') !== -1)
+    mergedArgs = mergedArgs.some((flag) => flag.indexOf("--headless=") !== -1)
       ? mergedArgs
-      : mergedArgs.concat(['--headless']);
+      : mergedArgs.concat(["--headless"]);
 
     // Add other flags to support headless mode
     mergedArgs = mergedArgs.concat([
-      '--no-proxy-server',
+      "--no-proxy-server",
       //'--no-sandbox',
       //'--disable-gpu',
     ]);
 
     // Add remote debugging port
     mergedArgs = mergedArgs.some(
-      (flag) => flag.indexOf('--remote-debugging-port=') !== -1
+      (flag) => flag.indexOf("--remote-debugging-port=") !== -1
     )
       ? mergedArgs
-      : mergedArgs.concat(['--remote-debugging-port=9222']);
+      : mergedArgs.concat(["--remote-debugging-port=9222"]);
 
     return mergedArgs;
   }

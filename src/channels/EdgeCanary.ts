@@ -1,12 +1,15 @@
-import BaseBrowser from '../BaseBrowser';
+import BaseBrowser from "../BaseBrowser";
 import {
   DarwinConstants,
   LinuxConstants,
   WindowsConstants,
-} from '../Constants';
-import Utilities from '../Utilities';
+} from "../Constants";
+import Utilities from "../Utilities";
 
-const EdgeCanaryBrowser = function (baseBrowserDecorator, args) {
+const EdgeCanaryBrowser = function (
+  baseBrowserDecorator: (arg0: any) => void,
+  args: { flags?: string[]; edgeDataDir?: string }
+) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -14,10 +17,10 @@ const EdgeCanaryBrowser = function (baseBrowserDecorator, args) {
   this._getOptions = browser._getOptions;
 };
 
-EdgeCanaryBrowser.$inject = ['baseBrowserDecorator', 'args'];
+EdgeCanaryBrowser.$inject = ["baseBrowserDecorator", "args"];
 
 EdgeCanaryBrowser.prototype = {
-  name: 'Edge Canary',
+  name: "Edge Canary",
 
   DEFAULT_CMD: {
     linux: Utilities.GetLinuxBin(LinuxConstants.EdgeCanary),
@@ -27,7 +30,7 @@ EdgeCanaryBrowser.prototype = {
     win32: Utilities.GetEdgeExe(WindowsConstants.EdgeCanary),
   },
 
-  ENV_CMD: 'EDGE_CANARY_BIN',
+  ENV_CMD: "EDGE_CANARY_BIN",
 };
 
 export default EdgeCanaryBrowser;

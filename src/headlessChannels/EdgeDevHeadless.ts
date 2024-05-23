@@ -1,12 +1,15 @@
-import BaseBrowser from '../BaseBrowser';
+import BaseBrowser from "../BaseBrowser";
 import {
   DarwinConstants,
   LinuxConstants,
   WindowsConstants,
-} from '../Constants';
-import Utilities from '../Utilities';
+} from "../Constants";
+import Utilities from "../Utilities";
 
-const EdgeDevHeadlessBrowser = function (baseBrowserDecorator, args) {
+const EdgeDevHeadlessBrowser = function (
+  baseBrowserDecorator: (arg0: any) => void,
+  args: { flags?: string[]; edgeDataDir?: string }
+) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -14,10 +17,10 @@ const EdgeDevHeadlessBrowser = function (baseBrowserDecorator, args) {
   this._getOptions = browser._getHeadlessOptions;
 };
 
-EdgeDevHeadlessBrowser.$inject = ['baseBrowserDecorator', 'args'];
+EdgeDevHeadlessBrowser.$inject = ["baseBrowserDecorator", "args"];
 
 EdgeDevHeadlessBrowser.prototype = {
-  name: 'Edge Dev Headless',
+  name: "Edge Dev Headless",
 
   DEFAULT_CMD: {
     linux: Utilities.GetLinuxBin(LinuxConstants.EdgeDev),
@@ -27,7 +30,7 @@ EdgeDevHeadlessBrowser.prototype = {
     win32: Utilities.GetEdgeExe(WindowsConstants.EdgeDev),
   },
 
-  ENV_CMD: 'EDGE_DEV_BIN',
+  ENV_CMD: "EDGE_DEV_BIN",
 };
 
 export default EdgeDevHeadlessBrowser;

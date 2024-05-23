@@ -1,12 +1,15 @@
-import BaseBrowser from '../BaseBrowser';
+import BaseBrowser from "../BaseBrowser";
 import {
   DarwinConstants,
   LinuxConstants,
   WindowsConstants,
-} from '../Constants';
-import Utilities from '../Utilities';
+} from "../Constants";
+import Utilities from "../Utilities";
 
-const EdgeBetaBrowser = function (baseBrowserDecorator, args) {
+const EdgeBetaBrowser = function (
+  baseBrowserDecorator: (arg0: any) => void,
+  args: { flags?: string[]; edgeDataDir?: string }
+) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
@@ -14,10 +17,10 @@ const EdgeBetaBrowser = function (baseBrowserDecorator, args) {
   this._getOptions = browser._getOptions;
 };
 
-EdgeBetaBrowser.$inject = ['baseBrowserDecorator', 'args'];
+EdgeBetaBrowser.$inject = ["baseBrowserDecorator", "args"];
 
 EdgeBetaBrowser.prototype = {
-  name: 'Edge Beta',
+  name: "Edge Beta",
 
   DEFAULT_CMD: {
     linux: Utilities.GetLinuxBin(LinuxConstants.EdgeBeta),
@@ -27,7 +30,7 @@ EdgeBetaBrowser.prototype = {
     win32: Utilities.GetEdgeExe(WindowsConstants.EdgeBeta),
   },
 
-  ENV_CMD: 'EDGE_BETA_BIN',
+  ENV_CMD: "EDGE_BETA_BIN",
 };
 
 export default EdgeBetaBrowser;
