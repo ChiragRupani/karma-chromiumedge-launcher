@@ -6,10 +6,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node node_modules/mocha/bin/mocha -r ts-node/register tests/**/*.test.ts",
-    "coverage": "nyc npm run test -- --reporter=mocha-junit-reporter --reporter-options mochaFile=coverage/test-results.xml",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage --silent=passed-only",
     "package": "npm run build & npm pack",
-    "integration-test": "npm run build & karma start integrationTests/karma.conf.js"
+    "integration-test": "npm run build & karma start integrationTests/karma.conf.js",
+    "lint": "oxlint -D perf src/**"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -34,34 +35,13 @@
   "author": "Chirag",
   "license": "MIT Based",
   "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22.13.7",
-    "@types/sinon": "^17.0.4",
+    "@types/node": "^22.14.0",
+    "@vitest/coverage-v8": "^3.1.1",
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
     "mocha": "^11.1.0",
-    "mocha-junit-reporter": "^2.2.1",
-    "nyc": "^17.1.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
-  },
-  "nyc": {
-    "reporter": [
-      "cobertura",
-      "text"
-    ],
-    "temp-directory": "./coverage/.nyc_output",
-    "exclude": [
-      "typings",
-      "tests"
-    ],
-    "include": [
-      "src/**/*.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "sourceMap": true,
-    "instrument": true
+    "oxlint": "^0.16.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.1"
   }
 }
