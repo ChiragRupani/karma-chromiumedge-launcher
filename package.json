@@ -35,13 +35,13 @@
   "author": "Chirag",
   "license": "MIT Based",
   "devDependencies": {
-    "@types/node": "^22.14.1",
-    "@vitest/coverage-v8": "^3.1.1",
+    "@types/node": "^22.15.3",
+    "@vitest/coverage-v8": "^3.1.2",
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
     "mocha": "^11.1.0",
-    "oxlint": "^0.16.5",
+    "oxlint": "^0.16.8",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.1"
+    "vitest": "^3.1.2"
   }
 }
