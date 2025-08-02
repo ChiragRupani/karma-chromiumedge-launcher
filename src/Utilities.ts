@@ -1,25 +1,25 @@
-import fs from 'fs';
-import path from 'path';
-import { DarwinConstants, LinuxConstants, WindowsConstants } from './Constants';
+import fs from "node:fs";
+import path from "node:path";
+import { DarwinConstants, LinuxConstants, WindowsConstants } from "./Constants";
 
 export default class Utilities {
   static GetLinuxBin(command: string) {
     // Only run these checks on Linux
-    if (process.platform !== 'linux') {
+    if (process.platform !== "linux") {
       return null;
     }
 
     // Need to check if check for other paths is required
-    const paths = [
-      '/usr/local/sbin',
-      '/usr/local/bin',
-      '/usr/sbin',
-      '/usr/bin',
-      '/sbin',
-      '/bin',
+    const _paths = [
+      "/usr/local/sbin",
+      "/usr/local/bin",
+      "/usr/sbin",
+      "/usr/bin",
+      "/sbin",
+      "/bin",
     ];
 
-    let edgeBIN: string = '/usr/bin/' + command;
+    let edgeBIN: string = "/usr/bin/" + command;
 
     try {
       fs.accessSync(edgeBIN, fs.constants.X_OK);
@@ -30,19 +30,22 @@ export default class Utilities {
   }
 
   static GetEdgeDarwin(defaultPath: string) {
-    if (process.platform !== 'darwin') {
+    if (process.platform !== "darwin") {
       return null;
     }
 
     let darwinPaths = [
-      path.join(process.env.HOME || '', defaultPath),
+      path.join(process.env.HOME || "", defaultPath),
       defaultPath,
     ];
 
     for (let i = 0; i < darwinPaths.length; i++) {
       try {
-        fs.accessSync(darwinPaths[i]);
-        return darwinPaths[i];
+        const darwinPath = darwinPaths[i];
+        if (darwinPath) {
+          fs.accessSync(darwinPath);
+          return darwinPath;
+        }
       } catch {}
     }
 
@@ -52,11 +55,11 @@ export default class Utilities {
   // Return location of Edge.exe file for a given directory.
   static GetEdgeExe(edgeDirName: string) {
     // Only run these checks on win32
-    if (process.platform !== 'win32') {
+    if (process.platform !== "win32") {
       return null;
     }
 
-    let suffix = '\\Microsoft\\' + edgeDirName + '\\Application\\msedge.exe';
+    let suffix = "\\Microsoft\\" + edgeDirName + "\\Application\\msedge.exe";
     let prefixes = [
       process.env["PROGRAMFILES(X86)"],
       process.env.PROGRAMFILES,
@@ -67,7 +70,7 @@ export default class Utilities {
     let edgePath: string | null = null;
     for (let i = 0; i < prefixes.length; i++) {
       try {
-        let windowsEdgeDirectory = path.join(prefixes[i] || '', suffix);
+        let windowsEdgeDirectory = path.join(prefixes[i] || "", suffix);
         fs.accessSync(windowsEdgeDirectory);
         edgePath = windowsEdgeDirectory;
         break;
@@ -77,7 +80,7 @@ export default class Utilities {
   }
 
   static isJSFlags(flag: string) {
-    return flag.indexOf('--js-flags=') === 0;
+    return flag.indexOf("--js-flags=") === 0;
   }
 
   static sanitizeJSFlags(flag: string) {
@@ -86,9 +89,9 @@ export default class Utilities {
       return flag;
     }
     let escapeChar = test[1];
-    let endExp = new RegExp(escapeChar + '$');
-    let startExp = new RegExp('--js-flags=' + escapeChar);
-    return flag.replace(startExp, '--js-flags=').replace(endExp, '');
+    let endExp = new RegExp(escapeChar + "$");
+    let startExp = new RegExp("--js-flags=" + escapeChar);
+    return flag.replace(startExp, "--js-flags=").replace(endExp, "");
   }
 
   static GetEdgeAnyLinux() {
