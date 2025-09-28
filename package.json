@@ -10,7 +10,7 @@
     "coverage": "vitest run --coverage --silent=passed-only",
     "package": "npm run build & npm pack",
     "integration-test": "npm run build & karma start integrationTests/karma.conf.js",
-    "lint": "oxlint -D perf src/**"
+    "lint": "oxlint -A all -D perf"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -35,12 +35,13 @@
   "author": "Chirag",
   "license": "MIT Based",
   "devDependencies": {
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.5.2",
     "@vitest/coverage-v8": "^3.2.4",
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
-    "mocha": "^11.7.1",
-    "oxlint": "^1.11.2",
+    "mocha": "^11.7.2",
+    "oxlint": "^1.18.0",
+    "oxlint-tsgolint": "^0.2.0",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
