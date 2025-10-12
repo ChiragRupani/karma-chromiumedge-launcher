@@ -24,7 +24,7 @@ export default class Utilities {
     try {
       fs.accessSync(edgeBIN, fs.constants.X_OK);
       return command;
-    } catch (e) {}
+    } catch {}
 
     return null;
   }
@@ -74,7 +74,7 @@ export default class Utilities {
         fs.accessSync(windowsEdgeDirectory);
         edgePath = windowsEdgeDirectory;
         break;
-      } catch (e) {}
+      } catch {}
     }
     return edgePath;
   }
