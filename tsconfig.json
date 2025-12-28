@@ -10,7 +10,7 @@
     "module": "commonjs",
     "target": "esnext",
     "lib": ["esnext"],
-    "types": ["node"],
+    "types": ["node", "vitest/globals"],
 
     // Other Outputs
     "sourceMap": true,
