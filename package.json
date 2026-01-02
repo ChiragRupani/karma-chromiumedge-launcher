@@ -40,12 +40,12 @@
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
     "mocha": "^11.7.5",
-    "oxlint": "^1.35.0",
-    "oxlint-tsgolint": "^0.10.0",
+    "oxlint": "^1.36.0",
+    "oxlint-tsgolint": "^0.10.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16"
   },
   "overrides": {
-    "vite": "npm:rolldown-vite@latest"
+    "vite": "8.0.0-beta.5"
   }
 }
