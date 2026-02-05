@@ -35,15 +35,15 @@
   "author": "Chirag",
   "license": "MIT Based",
   "devDependencies": {
-    "@types/node": "^25.0.3",
-    "@vitest/coverage-v8": "^4.0.16",
+    "@types/node": "^25.2.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
     "mocha": "^11.7.5",
-    "oxlint": "^1.36.0",
-    "oxlint-tsgolint": "^0.10.1",
+    "oxlint": "^1.43.0",
+    "oxlint-tsgolint": "^0.11.4",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.18"
   },
   "overrides": {
     "vite": "8.0.0-beta.5"
