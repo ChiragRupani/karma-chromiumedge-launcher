@@ -2,8 +2,30 @@
   "name": "@chiragrupani/karma-chromium-edge-launcher",
   "version": "2.4.2",
   "description": "A Karma plugin. Launcher for different Chromium Edge channels - Dev, Canary, Beta and Stable",
+  "keywords": [
+    "Chromium Edge Beta",
+    "Chromium Edge Canary",
+    "Chromium Edge Dev",
+    "Chromium Edge Launcher",
+    "Chromium Edge Stable",
+    "Edgium",
+    "Karma",
+    "Microsoft",
+    "edge",
+    "karma-launcher",
+    "karma-plugin"
+  ],
+  "license": "MIT Based",
+  "author": "Chirag",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ChiragRupani/karma-chromiumedge-launcher.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
@@ -12,40 +34,18 @@
     "integration-test": "npm run build & karma start integrationTests/karma.conf.js",
     "lint": "oxlint src --type-aware --type-check"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ChiragRupani/karma-chromiumedge-launcher.git"
-  },
-  "keywords": [
-    "karma-plugin",
-    "karma-launcher",
-    "Chromium Edge Dev",
-    "Chromium Edge Canary",
-    "Chromium Edge Beta",
-    "Chromium Edge Stable",
-    "Microsoft",
-    "edge",
-    "Chromium Edge Launcher",
-    "Karma",
-    "Edgium"
-  ],
-  "author": "Chirag",
-  "license": "MIT Based",
   "devDependencies": {
-    "@types/node": "^25.2.0",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@types/node": "^25.3.3",
+    "@vitest/coverage-v8": "^4.1.0-beta.5",
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
-    "mocha": "^11.7.5",
-    "oxlint": "^1.43.0",
-    "oxlint-tsgolint": "^0.11.4",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "mocha": "^12.0.0-beta-10",
+    "oxlint": "^1.51.0",
+    "oxlint-tsgolint": "^0.16.0",
+    "typescript": "^6.0.0-beta",
+    "vitest": "^4.1.0-beta.5"
   },
   "overrides": {
-    "vite": "8.0.0-beta.5"
+    "vite": "8.0.0-beta.16"
   }
 }
