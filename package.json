@@ -40,8 +40,8 @@
     "karma": "^6.4.4",
     "karma-mocha": "^2.0.1",
     "mocha": "^12.0.0-beta-10",
-    "oxlint": "^1.55.0",
-    "oxlint-tsgolint": "^0.16.0",
+    "oxlint": "^1.56.0",
+    "oxlint-tsgolint": "^0.17.0",
     "typescript": "^6.0.0-beta",
     "vitest": "^4.1.0"
   }
