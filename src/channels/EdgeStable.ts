@@ -1,19 +1,16 @@
 import BaseBrowser from "../BaseBrowser";
-import {
-  DarwinConstants,
-  LinuxConstants,
-  WindowsConstants,
-} from "../Constants";
+import { DarwinConstants, LinuxConstants, WindowsConstants } from "../Constants";
 import Utilities from "../Utilities";
 
 const EdgeStableBrowser = function (
   baseBrowserDecorator: (arg0: any) => void,
-  args: { flags?: string[]; edgeDataDir?: string }
+  args: { flags?: string[]; edgeDataDir?: string; excludedFlags?: string[] },
 ) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
-  var browser = new BaseBrowser(flags, userDataDir);
+  var excludedFlags = args.excludedFlags || [];
+  var browser = new BaseBrowser(flags, userDataDir, excludedFlags);
   this._getOptions = browser._getOptions;
 };
 
@@ -25,7 +22,7 @@ EdgeStableBrowser.prototype = {
   DEFAULT_CMD: {
     linux: Utilities.GetLinuxBin(LinuxConstants.Edge),
     darwin: Utilities.GetEdgeDarwin(
-      `/Applications/${DarwinConstants.Edge}.app/Contents/MacOS/${DarwinConstants.Edge}`
+      `/Applications/${DarwinConstants.Edge}.app/Contents/MacOS/${DarwinConstants.Edge}`,
     ),
     win32: Utilities.GetEdgeExe(WindowsConstants.Edge),
   },

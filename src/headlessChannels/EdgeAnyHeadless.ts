@@ -3,12 +3,13 @@ import Utilities from "../Utilities";
 
 const EdgeAnyHeadlessBrowser = function (
   baseBrowserDecorator: (arg0: any) => void,
-  args: { flags?: string[]; edgeDataDir?: string }
+  args: { flags?: string[]; edgeDataDir?: string; excludedFlags?: string[] },
 ) {
   baseBrowserDecorator(this);
   var flags = args.flags || [];
   var userDataDir = args.edgeDataDir || this._tempDir;
-  var browser = new BaseBrowser(flags, userDataDir);
+  var excludedFlags = args.excludedFlags || [];
+  var browser = new BaseBrowser(flags, userDataDir, excludedFlags);
   this._getOptions = browser._getHeadlessOptions;
 };
 
